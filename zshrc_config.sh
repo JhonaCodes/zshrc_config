@@ -148,8 +148,8 @@ git_prompt_info() {
 
   # Obtener el número de commits adelante y atrás respecto a la rama remota
   if [[ "$is_remote_branch" == true ]]; then
-    ahead=$(git rev-list --count "$branch" ^"origin/$remote_branch" 2>/dev/null || echo 0)
-    behind=$(git rev-list --count "origin/$branch".."$branch" 2>/dev/null || echo 0)
+    ahead=$(git rev-list --count "$branch" ^"origin/$branch" 2>/dev/null || echo 0)
+    behind=$(git rev-list --count "$branch".."origin/$remote_branch" 2>/dev/null || echo 0)
   else
     # Para ramas locales que no tienen rama remota asociada
     ahead=$(git rev-list --count "$branch" ^main 2>/dev/null || echo 0)
